@@ -1,0 +1,295 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575; 
+    --grisClaro: #DFE9F3;
+
+    --fuente-principal: 3.8rem;
+}
+
+/* Globales */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /* Hack para Box Model */
+    scroll-snap-type: y proximity; /* Vertical scroll */
+}
+
+/* Scroll Snap */
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*, *:before, *:after { /* * = aplica a todos los elementos html, así el padding o border no afecta */
+  box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* 1rem = 10px */
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 70%); /* indica 0% que hasta abajo llegará el color */
+}
+
+.contenedor {
+    max-width: 120rem;
+    /* así no forzamos */
+    margin: 0 auto;
+    /* sigue las agujas del reloj, como los valores se repiten puedo eliminar abajo e izq */
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    width: 70%;
+    text-align: center;
+    border:none;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px -3px rgba(128, 123, 128, 0.69);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Tipografía */
+h1 {
+    color: var(--primario);
+    font-size: var(--fuente-principal);
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+/* Titulos */
+.titulo span { /* solo "span" lo aplicaría a todos" */
+    font-size: 2rem;
+    color: var(--secundario);
+}
+
+/* Utilidades */
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* Navegación Principal*/
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 480px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    padding: 1.5rem; /* como si tuviese 4 */
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.navegacion-principal a:hover { /* el color de fondo al pasar el cursor por encima */
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* Hero */
+.hero {
+    background-image: url(../images/1088560.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, .4); /* Anterior */
+    background-color: rgb(0 0 0 / 60%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: center;
+}
+
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios {
+        display: grid; /* Puedes mover izq-der o arr-aba */
+        grid-template-columns: repeat(3, 1fr); /* 33.3% * 3 */
+        column-gap: 2rem; /* Separación entre columnas */
+        /* grid: 200px 800px / 300px 300px; rows/columns */
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight:600;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-style: outset;
+    border-color:rgba(0,0,0, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Contacto */
+
+.contacto {
+    margin-top: 4rem;
+}
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* Utilizar el valor más pequeño (evalúa constantemente) ¿es más pequeño 600 píxeles o el 100%? */
+    margin: 0 auto; /* Se usa para centrar si el elemento es un formulario y el padre no es un display: flex */
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 20rem;
+    column-gap: 1.5rem;
+    }   
+
+    .campo:nth-child(3), 
+    .campo:nth-child(4) { /* selecciona el cuarto campo */
+        grid-column: 1 / 3;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 18rem;
+}
+
+/*
+.campo input[type="text"],
+.campo input[type="tel"] {
+    background-color: #0097A7;
+} Esta es una forma de hacerlo */
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+}
