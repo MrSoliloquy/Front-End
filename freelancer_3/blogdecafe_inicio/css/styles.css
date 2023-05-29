@@ -97,6 +97,7 @@ img {
     text-align: center;
     color: var(--blanco);
     margin-top: 4rem;
+    margin: 3rem 1rem 0 1rem;
 }
 
 @media (min-width: 768px) {
@@ -129,8 +130,13 @@ img {
     font-weight: 700;
 }
 
+.navegacion {
+    margin-top: 3rem;
+}
+
 @media (min-width: 768px) {
     .navegacion {
+        margin-top: unset;
         display: flex;
         gap: 3rem;
     }
@@ -319,6 +325,7 @@ img {
 .campo__field { 
     flex: 1; /* Como el otro no crece, el field ocupa el resto de píxeles que le sobran al label */
     border: 1px solid var(--gris);
+    overflow: auto;
 }
 
 .campo__field--textarea {
